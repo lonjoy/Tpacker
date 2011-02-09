@@ -1,6 +1,9 @@
-## 环境依赖
+## 下载
 
-[download](https://github.com/taobao-wd/Tpacker/raw/master/T-Packer_1.0.1.zip)
+- windows:[download](https://github.com/taobao-wd/Tpacker/raw/master/T-Packer_1.0.1.zip)
+- linux:[download](https://github.com/taobao-wd/Tpacker/raw/master/yjsmin)
+
+## 环境依赖
 
 工具依赖java环境，安装前先确认已经安装java环境并配好JAVA_HOME环境变量
 
