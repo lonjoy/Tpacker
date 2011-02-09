@@ -21,6 +21,8 @@
 
 给定源目录和目标目录，点击Pack ，进行批量压缩
 
+![img](http://img04.taobaocdn.com/tps/i4/T1G8lZXaRLXXXXXXXX-709-80.png)
+
 压缩完成后会弹出压缩后的目录。
 
 ## linux 命令行脚本
