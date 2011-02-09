@@ -1,0 +1,86 @@
+#!/bin/bash
+# created by bachi@taobao.com
+# 打包脚本
+# 	创建filename.source.js/css
+#	native2ascii
+# 
+
+AIMDIR=taobao/build
+
+aimdir=$*
+
+myPath=$PWD
+
+if [ -z "$*" ];then
+	echo "没有指定目标目录，使用{$AIMDIR}"
+	aimdir={$AIMDIR}
+fi
+
+if [ ! -d $aimdir ]; then
+	mkdir $aimdir -p
+else 
+	echo -n "目标目录{$aimdir}已经存在,是否继续(y/n):";
+	read CM;
+	CM=`echo $CM | tr '[a-z]' '[A-Z]'`;
+	if [ "$CM" != "Y" ];then
+		echo '程序退出,byebye';
+		exit;
+	fi
+fi
+
+# isEnc file.name gbk && echo 'gbk'
+# isEnc file.name utf8 && echo 'utf8'
+isEnc () {
+	local temp=`iconv -f $2 $1 1>/dev/null 2>/dev/null && echo 'true'`;
+	if [ "$temp" = 'true' ]; then
+		return 0;
+	fi;
+	return 1;
+}
+
+# buildOneFile file.name aimdir css
+buildOneFile () {
+	FILENAME=$1;
+	aimdir=$2;
+	filetype=$3;
+	isEnc ${FILENAME} gb18030 && iconv -f GB18030 -t UTF-8 ${FILENAME} -o ${FILENAME}.${filetype}
+	isEnc ${FILENAME} utf8 && cp ${FILENAME} ${FILENAME}.${filetype}
+	native2ascii ${FILENAME}.${filetype} $aimdir/${FILENAME%\.*}-min.bak.${filetype}
+	java -jar /usr/bin/yuicompressor-2.4.2.jar $aimdir/${FILENAME%\.*}-min.bak.${filetype} -o $aimdir/${FILENAME}
+	if [ "{$filetype}" = "css" ];then
+		sed -i 's/\\u/\\/g' $aimdir/${FILENAME}
+	fi;
+	rm $aimdir/${FILENAME%\.*}-min.bak.${filetype}
+	rm ${FILENAME}.${filetype}
+	cat ${FILENAME} > $aimdir/${FILENAME%\.*}.source.{$filetype};
+	echo -e ">>> compressed ${filetype} file done \033[32m${FILENAME} \033[0m";
+	echo -e ">>> compressed ${filetype} file done \033[32m${FILENAME%\.*}.source.${filetype} \033[0m";
+}
+
+myPath=$PWD
+
+find . -name '*.js' | sed -r 's/^\.\///' >  /tmp/__js_files
+find . -name '*.css'| sed -r 's/^\.\///' > /tmp/__css_files
+
+while read FILENAME
+	do
+		path=$(dirname $FILENAME)
+		mkdir $aimdir/$path -p
+		if [ -f $FILENAME ];then
+			buildOneFile $FILENAME $aimdir js
+		fi
+done < /tmp/__js_files
+rm /tmp/__js_files
+
+while read FILENAME
+	do
+		path=$(dirname $FILENAME)
+		mkdir $aimdir/$path -p
+		if [ -f $FILENAME ];then
+			buildOneFile $FILENAME $aimdir css
+		fi
+done < /tmp/__css_files
+rm /tmp/__css_files
+
+exit;
+
