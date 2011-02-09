@@ -1,5 +1,7 @@
 ## 环境依赖
 
+[download](https://github.com/taobao-wd/Tpacker/raw/master/T-Packer_1.0.1.zip)
+
 工具依赖java环境，安装前先确认已经安装java环境并配好JAVA_HOME环境变量
 
 ![img](http://img01.taobaocdn.com/tps/i1/T1Zm8ZXd4kXXXXXXXX-394-407.png)
