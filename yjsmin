@@ -46,10 +46,14 @@ buildOneFile () {
 	isEnc ${FILENAME} gb18030 && iconv -f GB18030 -t UTF-8 ${FILENAME} -o ${FILENAME}.${filetype}
 	isEnc ${FILENAME} utf8 && cp ${FILENAME} ${FILENAME}.${filetype}
 	native2ascii ${FILENAME}.${filetype} $aimdir/${FILENAME%\.*}-min.bak.${filetype}
-	java -jar /usr/bin/yuicompressor-2.4.2.jar $aimdir/${FILENAME%\.*}-min.bak.${filetype} -o $aimdir/${FILENAME}
-	if [ "{$filetype}" = "css" ];then
+	if [ "${filetype}" = "css" ];then
 		sed -i 's/\\u/\\/g' $aimdir/${FILENAME}
+		java -jar /usr/bin/yuicompressor-2.4.2.jar $aimdir/${FILENAME%\.*}-min.bak.${filetype} -o $aimdir/${FILENAME}
 	fi;
+	if [ "${filetype}" = "js" ];then
+		java -jar /usr/bin/jsmin.jar $aimdir/${FILENAME%\.*}-min.bak.${filetype} > $aimdir/${FILENAME}
+	fi;
+
 	rm $aimdir/${FILENAME%\.*}-min.bak.${filetype}
 	rm ${FILENAME}.${filetype}
 	cat ${FILENAME} > $aimdir/${FILENAME%\.*}.source.${filetype};
