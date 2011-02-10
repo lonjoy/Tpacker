@@ -21,7 +21,7 @@
 
 给定源目录和目标目录，点击Pack ，进行批量压缩
 
-![img](http://img04.taobaocdn.com/tps/i4/T1G8lZXaRLXXXXXXXX-709-80.png)
+![img](http://img03.taobaocdn.com/tps/i3/T1u_0ZXbdgXXXXXXXX-709-80.png)
 
 压缩完成后会弹出压缩后的目录。
 
