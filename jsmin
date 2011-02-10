@@ -1,0 +1,19 @@
+#!/bin/sh
+# -*- coding: utf-8 -*-
+
+isEnc () {
+	local temp=`iconv -f $2 $1 1>/dev/null 2>/dev/null && echo 'true'`;
+	if [ "$temp" = 'true' ]; then
+		return 0;
+	fi;
+	return 1;
+}
+
+isEnc $1 gb18030 && iconv -f GB18030 -t UTF-8 $1 -o $1.bak
+isEnc $1 utf8 && cp $1 $1.bak
+
+native2ascii $1.bak $1.bak.js
+
+java -jar /usr/bin/jsmin.jar $1.bak.js > $2
+
+rm $1.bak $1.bak.js
