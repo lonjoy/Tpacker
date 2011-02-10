@@ -41,6 +41,7 @@
 
 - 程序默认安装在C:\TBTools\Packer
 - 压缩采用yuicompressor，并做native2ascii转码，css文件转换为\xxxx，js文件转换为 \uxxxx
-- 管你文件格式是神马GBK还是UTF8，通吃
+- 支持源文件的GBK和UTF-8格式
+- 生成.source.js或.source.css源文件
 - 若想用google compiler，先自己修改源码，后续版本会补充。。。。
 - 目前程序为测试版，不保证一定好用。
