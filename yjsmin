@@ -12,8 +12,8 @@ aimdir=$*
 myPath=$PWD
 
 if [ -z "$*" ];then
-	echo "没有指定目标目录，使用{$AIMDIR}"
-	aimdir={$AIMDIR}
+	echo '请指定目标目录'
+	exit;
 fi
 
 if [ ! -d $aimdir ]; then
@@ -52,7 +52,7 @@ buildOneFile () {
 	fi;
 	rm $aimdir/${FILENAME%\.*}-min.bak.${filetype}
 	rm ${FILENAME}.${filetype}
-	cat ${FILENAME} > $aimdir/${FILENAME%\.*}.source.{$filetype};
+	cat ${FILENAME} > $aimdir/${FILENAME%\.*}.source.${filetype};
 	echo -e ">>> compressed ${filetype} file done \033[32m${FILENAME} \033[0m";
 	echo -e ">>> compressed ${filetype} file done \033[32m${FILENAME%\.*}.source.${filetype} \033[0m";
 }
