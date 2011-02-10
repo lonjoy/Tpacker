@@ -31,7 +31,7 @@
 
 拷贝 yjsmin 到 `/usr/bin/`目录
 
-拷贝 yuicompressor-x.y.z.jar 到 `/usr/bin/` 目录
+拷贝 `yuicompressor-x.y.z.jar`,`jsmin.jar` 到 `/usr/bin/` 目录
 
 进入到要执行压缩的目录,执行
 
@@ -39,9 +39,8 @@
 
 ## 安装须知
 
-- 程序默认安装在C:\TBTools\Packer
-- 压缩采用yuicompressor，并做native2ascii转码，css文件转换为\xxxx，js文件转换为 \uxxxx
+- windows安装程序默认安装在C:\TBTools\Packer
+- css 压缩采用 yuicompressor,js 压缩采用 jsmin，并做 native2ascii 转码，css 文件转换为 \xxxx，js文件转换为 \uxxxx
 - 支持源文件的GBK和UTF-8格式
 - 生成.source.js或.source.css源文件
-- 若想用google compiler，先自己修改源码，后续版本会补充。。。。
 - 目前程序为测试版，不保证一定好用。
