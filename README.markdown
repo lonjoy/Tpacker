@@ -1,6 +1,7 @@
-## 下载
+#
+下载
 
-- windows:[download](https://github.com/taobao-wd/Tpacker/raw/master/T-Packer_1.0.1.zip)
+- windows:[download](https://github.com/taobao-wd/Tpacker/raw/master/T-Packer.exe)
 - linux:[download](https://github.com/taobao-wd/Tpacker/raw/master/yjsmin)
 
 ## 环境依赖
