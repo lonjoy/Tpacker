@@ -34,13 +34,13 @@
 
 脚本依赖java环境，请安装jdk并配置JAVA_HOME
 
-拷贝 yjsmin,cssmin,jsmin到 `/usr/bin/`目录
+拷贝 tpack,cssmin,jsmin到 `/usr/bin/`目录(或者~/bin/目录)
 
 拷贝 `yuicompressor-x.y.z.jar`,`jsmin.jar` 到 `/usr/bin/` 目录
 
 进入到要执行压缩的目录,执行
 
-	yjsmin 目标目录
+	tpack 目标目录
 
 单文件压缩
 	
