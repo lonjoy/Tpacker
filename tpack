@@ -9,11 +9,24 @@ AIMDIR=taobao/build
 
 aimdir=$*
 
+
 myPath=$PWD
 
+overwrite=0
+
 if [ -z "$*" ];then
-	echo '请指定目标目录'
-	exit;
+	echo -n "目标目录未指定，将在源目录执行pack,是否继续(y/n):";
+	read CM;
+	CM=`echo $CM | tr '[a-z]' '[A-Z]'`;
+	if [ "$CM" != "Y" ];then
+		echo '程序退出,byebye';
+		exit;
+	fi
+
+	overwrite=1
+
+	aimdir=/tmp/buildfiles
+	rm $aimdir -rf
 fi
 
 if [ ! -d $aimdir ]; then
@@ -43,28 +56,40 @@ buildOneFile () {
 	FILENAME=$1;
 	aimdir=$2;
 	filetype=$3;
+
 	isEnc ${FILENAME} gb18030 && iconv -f GB18030 -t UTF-8 ${FILENAME} -o ${FILENAME}.${filetype}
 	isEnc ${FILENAME} utf8 && cp ${FILENAME} ${FILENAME}.${filetype}
 	native2ascii ${FILENAME}.${filetype} $aimdir/${FILENAME%\.*}-min.bak.${filetype}
 	if [ "${filetype}" = "css" ];then
-		sudo java -jar /usr/bin/yuicompressor-2.4.2.jar $aimdir/${FILENAME%\.*}-min.bak.${filetype} -o $aimdir/${FILENAME}
-		sed -i 's/\\u/\\/g' $aimdir/${FILENAME}
+		sudo java -jar /usr/bin/yuicompressor-2.4.2.jar $aimdir/${FILENAME%\.*}-min.bak.${filetype} -o $aimdir/${FILENAME%\.*}-min.${filetype}
+		sed -i 's/\\u/\\/g' $aimdir/${FILENAME%\.*}-min.${filetype}
 	fi;
 	if [ "${filetype}" = "js" ];then
-		sudo java -jar /usr/bin/jsmin.jar $aimdir/${FILENAME%\.*}-min.bak.${filetype} > $aimdir/${FILENAME}
+		sudo java -jar /usr/bin/jsmin.jar $aimdir/${FILENAME%\.*}-min.bak.${filetype} > $aimdir/${FILENAME%\.*}-min.${filetype}
 	fi;
 
 	rm $aimdir/${FILENAME%\.*}-min.bak.${filetype}
 	rm ${FILENAME}.${filetype}
-	cat ${FILENAME} > $aimdir/${FILENAME%\.*}.source.${filetype};
+	#cat ${FILENAME} > $aimdir/${FILENAME%\.*}.source.${filetype};
+	cat ${FILENAME} > $aimdir/${FILENAME};
+
+	if [ "${overwrite}" = "1" ];then
+		rm ${FILENAME}
+		if [ -f ${FILENAME%\.*}-min.${filetype} ];then
+			rm ${FILENAME%\.*}-min.${filetype}
+		fi
+		cat $aimdir/${FILENAME} > ${FILENAME}
+		cat $aimdir/${FILENAME%\.*}-min.${filetype} > ${FILENAME%\.*}-min.${filetype}
+	fi
+
 	echo -e ">>> compressed ${filetype} file done \033[32m${FILENAME} \033[0m";
-	echo -e ">>> compressed ${filetype} file done \033[32m${FILENAME%\.*}.source.${filetype} \033[0m";
+	echo -e ">>> compressed ${filetype} file done \033[32m${FILENAME%\.*}-min.${filetype} \033[0m";
 }
 
 myPath=$PWD
 
-find . -name '*.js' | sed -r 's/^\.\///' >  /tmp/__js_files
-find . -name '*.css'| sed -r 's/^\.\///' > /tmp/__css_files
+find . -name '*.js' | grep -v '\-min.js'| sed -r 's/^\.\///' >  /tmp/__js_files
+find . -name '*.css'| grep -v '\-min.css'|sed -r 's/^\.\///' > /tmp/__css_files
 
 while read FILENAME
 	do
@@ -85,6 +110,7 @@ while read FILENAME
 		fi
 done < /tmp/__css_files
 rm /tmp/__css_files
+
 
 exit;
 
