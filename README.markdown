@@ -1,9 +1,13 @@
 #
 下载
 
-- windows（旧版）:[download](https://github.com/taobao-wd/Tpacker/raw/master/T-Packer.exe)
-- windows（新版）:[download](https://github.com/taobao-wd/Tpacker/raw/master/T-Packer-minify.exe)
-- linux:[download](https://github.com/taobao-wd/Tpacker/raw/master/tpack)
+- windows(旧版):[T-Packer.exe](https://github.com/taobao-wd/Tpacker/raw/master/T-Packer.exe)
+- windows(新版):[T-Packer-minify.exe](https://github.com/taobao-wd/Tpacker/raw/master/T-Packer-minify.exe)
+- linux(新版):[download](https://github.com/taobao-wd/Tpacker/raw/master/tpack)
+
+旧版：将源文件压缩成为目标压缩文件和.source.js/css
+
+新版：将源文件压缩为-min.js/css和保留源文件(推荐)
 
 ## 环境依赖
 
@@ -25,7 +29,7 @@
 
 ![img](http://img03.taobaocdn.com/tps/i3/T1u_0ZXbdgXXXXXXXX-709-80.png)
 
-对单个文件进行压缩，生成"-min.js/css"文件，可多选（最多选择9个文件）
+对单个文件进行压缩，生成"-min.js/css"文件，可多选
 ![img](http://img02.taobaocdn.com/tps/i2/T1Dfd3XbBzXXXXXXXX-478-99.png)
 
 压缩完成后会弹出压缩后的目录。
