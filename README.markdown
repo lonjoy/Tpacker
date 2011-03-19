@@ -1,5 +1,8 @@
 ![logo](http://img04.taobaocdn.com/tps/i4/T1rEB3Xm4wXXXXXXXX-496-96.png)
 
+- Created by [拔赤](http://jayli.github.com)
+- License: [http://www.opensource.org/licenses/bsd-license](http://www.opensource.org/licenses/bsd-license)
+
 下载
 
 - windows(旧版):[T-Packer.exe](https://github.com/taobao-wd/Tpacker/raw/master/T-Packer.exe)
