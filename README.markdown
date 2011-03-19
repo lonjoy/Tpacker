@@ -29,8 +29,9 @@
 
 ![img](http://img03.taobaocdn.com/tps/i3/T1u_0ZXbdgXXXXXXXX-709-80.png)
 
-对单个文件进行压缩，生成"-min.js/css"文件，可多选
-![img](http://img02.taobaocdn.com/tps/i2/T1Dfd3XbBzXXXXXXXX-478-99.png)
+也可以通过右键->发送到->TPacker-compressor，对单个(多个)文件进行压缩，生成"-min.js/css"文件
+
+![右键压缩](http://img02.taobaocdn.com/tps/i2/T1Dfd3XbBzXXXXXXXX-478-99.png)
 
 压缩完成后会弹出压缩后的目录。
 
@@ -55,7 +56,6 @@
 
 - windows安装程序默认安装在C:\TBTools\Packer
 - css 压缩采用 yuicompressor,js 压缩采用 jsmin，并做 native2ascii 转码，css 文件转换为 \xxxx，js文件转换为 \uxxxx
-- windows的版本不对css作unicode转码
 - 支持源文件的GBK和UTF-8格式
 - 生成源文件和-min.js或者-min.css文件(旧版打包工具生成source.js或.source.css源文件)
 - 目前程序为测试版，不保证一定好用。
