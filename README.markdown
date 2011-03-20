@@ -13,6 +13,10 @@
 
 新版：将源文件压缩为-min.js/css和保留源文件(推荐)
 
+## 流行批量压缩工具比较
+
+![img](http://jayli.github.com/gallery/bird/compressor.png)
+
 ## 环境依赖
 
 工具依赖java环境，安装前先确认已经安装java环境并配好JAVA_HOME环境变量
