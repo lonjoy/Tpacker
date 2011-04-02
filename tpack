@@ -61,11 +61,11 @@ buildOneFile () {
 	isEnc ${FILENAME} utf8 && cp ${FILENAME} ${FILENAME}.${filetype}
 	native2ascii ${FILENAME}.${filetype} $aimdir/${FILENAME%\.*}-min.bak.${filetype}
 	if [ "${filetype}" = "css" ];then
-		sudo java -jar /usr/bin/yuicompressor-2.4.2.jar $aimdir/${FILENAME%\.*}-min.bak.${filetype} -o $aimdir/${FILENAME%\.*}-min.${filetype}
+		java -jar /usr/bin/yuicompressor-2.4.2.jar $aimdir/${FILENAME%\.*}-min.bak.${filetype} -o $aimdir/${FILENAME%\.*}-min.${filetype}
 		sed -i 's/\\u/\\/g' $aimdir/${FILENAME%\.*}-min.${filetype}
 	fi;
 	if [ "${filetype}" = "js" ];then
-		sudo java -jar /usr/bin/jsmin.jar $aimdir/${FILENAME%\.*}-min.bak.${filetype} > $aimdir/${FILENAME%\.*}-min.${filetype}
+		java -jar /usr/bin/jsmin.jar $aimdir/${FILENAME%\.*}-min.bak.${filetype} > $aimdir/${FILENAME%\.*}-min.${filetype}
 	fi;
 
 	rm $aimdir/${FILENAME%\.*}-min.bak.${filetype}
@@ -111,6 +111,8 @@ while read FILENAME
 done < /tmp/__css_files
 rm /tmp/__css_files
 
+
+rm $aimdir -rf
 
 exit;
 
