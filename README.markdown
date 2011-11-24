@@ -13,6 +13,12 @@
 
 新版：将源文件压缩为-min.js/css和保留源文件(推荐)
 
+## CHANGELOG
+
+### version 1.0.1
+
+- yuicompressor 2.4.2 > yuicompressor 2.4.7
+
 ## 流行批量压缩工具比较
 
 ![img](http://jayli.github.com/gallery/bird/compressor.png)
