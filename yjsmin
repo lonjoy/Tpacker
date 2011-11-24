@@ -47,7 +47,7 @@ buildOneFile () {
 	isEnc ${FILENAME} utf8 && cp ${FILENAME} ${FILENAME}.${filetype}
 	native2ascii ${FILENAME}.${filetype} $aimdir/${FILENAME%\.*}-min.bak.${filetype}
 	if [ "${filetype}" = "css" ];then
-		sudo java -jar /usr/bin/yuicompressor-2.4.2.jar $aimdir/${FILENAME%\.*}-min.bak.${filetype} -o $aimdir/${FILENAME}
+		sudo java -jar /usr/bin/yuicompressor-2.4.7.jar $aimdir/${FILENAME%\.*}-min.bak.${filetype} -o $aimdir/${FILENAME}
 		sed -i 's/\\u/\\/g' $aimdir/${FILENAME}
 	fi;
 	if [ "${filetype}" = "js" ];then
