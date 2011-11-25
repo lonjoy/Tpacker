@@ -49,15 +49,21 @@
 
 压缩完成后会弹出压缩后的目录。
 
-## linux 命令行脚本
+## linux 命令行脚本的安装
 
 脚本依赖java环境，请安装jdk并配置JAVA_HOME
 
-拷贝 tpack,cssmin,jsmin到 `/usr/bin/`目录(或者~/bin/目录)
+将git代码check出来后，在项目目录中执行下面命令即可
+	
+	sudo sh ./install.sh
 
-拷贝 `yuicompressor-x.y.z.jar`,`jsmin.jar` 到 `/usr/bin/` 目录
+### linux 下运行脚本
 
-进入到要执行压缩的目录,执行
+压缩当前目录下的所有文件:进入到需要执行压缩的目录，直接运行
+
+	tpack
+
+要想将文件压缩至其他目录中，进入到要执行压缩的目录,执行
 
 	tpack 目标目录
 
