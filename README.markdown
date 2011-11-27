@@ -1,23 +1,17 @@
-﻿![logo](http://img04.taobaocdn.com/tps/i4/T1rEB3Xm4wXXXXXXXX-496-96.png)
+![logo](http://img04.taobaocdn.com/tps/i4/T1rEB3Xm4wXXXXXXXX-496-96.png)
 
 - Created by [拔赤](http://jayli.github.com)
 - License: [http://www.opensource.org/licenses/bsd-license](http://www.opensource.org/licenses/bsd-license)
 
 下载
 
-- windows(新版):[T-Packer-minifier-1.0.1.exe](https://github.com/jayli/Tpacker/raw/master/T-Packer-minifier-1.0.1.exe)
+- windows(新版):[T-Packer-minifier-1.0.2.exe](https://github.com/jayli/Tpacker/raw/master/T-Packer-minifier-1.0.2.exe)
 - linux(新版):[download](https://github.com/jayli/Tpacker/raw/master/tpack)
 - windows(旧版):[T-Packer.exe](https://github.com/jayli/Tpacker/raw/master/T-Packer.exe)
 
 旧版：将源文件压缩成为目标压缩文件和.source.js/css
 
 新版：将源文件压缩为-min.js/css和保留源文件(推荐)
-
-## CHANGELOG
-
-### version 1.0.1
-
-- yuicompressor 2.4.2 > yuicompressor 2.4.7
 
 ## 流行批量压缩工具比较
 
@@ -79,3 +73,13 @@
 - 支持源文件的GBK和UTF-8格式
 - 生成源文件和-min.js或者-min.css文件(旧版打包工具生成source.js或.source.css源文件)
 - 目前程序为测试版，不保证一定好用。
+
+## CHANGELOG
+
+### version 1.0.2
+
+- 发送到快捷方式指向错误bugfix
+
+### version 1.0.1
+
+- yuicompressor 2.4.2 > yuicompressor 2.4.7
