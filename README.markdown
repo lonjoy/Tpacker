@@ -5,8 +5,8 @@
 
 下载
 
-- windows(新版):[T-Packer-minifier-1.0.2.exe](https://github.com/jayli/Tpacker/raw/master/T-Packer-minifier-1.0.2.exe)
-- linux(新版):[download](https://github.com/jayli/Tpacker/raw/master/tpack)
+- for windows:[T-Packer-minifier-1.0.2.exe](https://github.com/jayli/Tpacker/raw/master/T-Packer-minifier-1.0.2.exe)
+- for linux:参照文档下文“linux 命令行脚本的安装”部分
 - windows(旧版):[T-Packer.exe](https://github.com/jayli/Tpacker/raw/master/T-Packer.exe)
 
 旧版：将源文件压缩成为目标压缩文件和.source.js/css
